@@ -1,3 +1,17 @@
+# Ignore node modules
+node_modules/
+
+# Ignore Browserslist config
+.browserslistrc
+
+# Ignore main project files
+README.md
+babel.config.json
+eslint.config.mjs
+link.test.js
+index.html
+logo.png
+
 # Logs
 logs
 *.log
