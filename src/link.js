@@ -1,9 +1,17 @@
 export function link(){
 
     function get(url, options={}, errorHandler){
+        const defaultOptions = {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            timeout: 10000, // Default timeout of 10 seconds
+          };
+
         return fetch(url, {
             method: 'GET',
-            ...options
+            ...options,
+            ...defaultOptions,
         }).then(response =>{
             if(!response.ok){
                 throw new Error(`Network response was not ok: ${response.statusText}`);
