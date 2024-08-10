@@ -27,17 +27,42 @@ export function link(){
         });
     };
 
+    function post(url, data, options = {}, errorHandler) {
+        const defaultOptions = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+          ...options,
+        };
+    
+        return fetch(url, defaultOptions)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            return response.json();
+          })
+          .catch(error => {
+            if (errorHandler) {
+              errorHandler(error);
+            } else {
+              console.error('Error:', error);
+              throw error;
+            }
+          });
+      }
+
     return {
         get,
+        post,
     };
 }
 
 export const LINK = new link();
 
 /*
-function post(){
-
-    };
 
     function update(){
 
