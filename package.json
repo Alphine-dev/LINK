@@ -1,6 +1,6 @@
 {
   "name": "link",
-  "version": "1.1.17",
+  "version": "1.2.19",
   "description": "a library built on top of fetch API js",
   "source": "src/link.js",
   "main": "dist/LINK.js",
